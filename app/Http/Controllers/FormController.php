@@ -24,3 +24,4 @@ class FormController extends Controller
         return view('hasil', compact('data'));
 }
 }
+

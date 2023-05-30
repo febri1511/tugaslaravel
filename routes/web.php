@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\InputController;
 use App\Http\Controllers\FormController;
-use App\Https\Controllers\InputController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +49,16 @@ Route::post('/hasil', [FormController::class, 'hasil']);
 
 Route::get('/input', [InputController::class, 'index']);
 Route::post('/output', [InputController::class, 'output']);
+
+//ini route untuk backend atau admin
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/produk', [ProdukController::class, 'index']);
+
+});
+
+Route::prefix('frontend')->group(function () {
+    Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/about', [AboutController::class, 'index']);
+
+});

@@ -1,0 +1,11 @@
+@include('frontend.layout.sidebar')
+@include('frontend.layout.header')
+<div>
+    <main>
+        <div>
+@yield('content')
+        </div>
+    </main>
+</div>
+</div>
+@include('frontend.layout.footer')
