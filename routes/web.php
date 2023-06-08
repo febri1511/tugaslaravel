@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\KategoriProdukController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,6 +56,13 @@ Route::post('/output', [InputController::class, 'output']);
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/produk', [ProdukController::class, 'index']);
+    Route::get('/produk/create', [ProdukController::class, 'create']);
+    Route::post('/produk/store', [ProdukController::class, 'store']);
+    Route::get('/kategoriproduk', [KategoriProdukController::class, 'index']);
+    Route::get('/pesanan', [PesananController::class, 'index']);
+
+
+
 
 });
 
