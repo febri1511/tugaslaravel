@@ -16,34 +16,32 @@
 
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                Data Kategori Produk
-            </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
-                            $no = 1;
-                        @endphp
-                        {{-- karena data yg ditampilkan dalam produk controller adalah data array, maka untuk memanggil data array kita menggunakan foreach --}}
-                        @foreach ($kategori_produk as $katprod)
+
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
                             <tr>
-                                <td>{{ $no }}</td>
-                                <td>{{ $katprod->nama }}</td>
+                                <th>No</th>
+                                <th>Nama</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             @php
-                                $no++;
+                                $no = 1;
                             @endphp
-                        @endforeach
-                    </tbody>
-                </table>
+                            {{-- karena data yg ditampilkan dalam produk controller adalah data array, maka untuk memanggil data array kita menggunakan foreach --}}
+                            @foreach ($kategori_produk as $katprod)
+                                <tr>
+                                    <td>{{ $no }}</td>
+                                    <td>{{ $katprod->nama }}</td>
+                                </tr>
+                                @php
+                                    $no++;
+                                @endphp
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

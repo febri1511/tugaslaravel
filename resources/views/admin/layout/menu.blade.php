@@ -20,9 +20,9 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
 
-                            <a class="nav-link" href="{{ url('admin/produk') }}">Kategori Produk</a>
-                            <a class="nav-link" href="#">Kategori Produk</a>
-                            <a class="nav-link" href="#">Pesanan</a>
+                            <a class="nav-link" href="{{ url('admin/produk') }}">Produk</a>
+                            <a class="nav-link" href="{{ url('admin/kategoriproduk') }}">Kategori Produk</a>
+                            <a class="nav-link" href="{{ url('admin/pesanan') }}">Pesanan</a>
 
 
                         </nav>

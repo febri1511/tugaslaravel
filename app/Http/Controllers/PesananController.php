@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pesanan;
+use App\Models\KategoriProduk;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -21,7 +22,12 @@ class PesananController extends Controller
      */
     public function create()
     {
-        //
+        // menampilkan sluruh data kategori produk
+        $kategori_produk = KategoriProduk::all();
+
+        // menampilkan seluruh data produk
+        $produk = Pesanan::all();
+        return view('admin.pesanan.create', compact('kategori_produk', 'produk'));
     }
 
     /**
@@ -29,7 +35,25 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // buat class dengan nama table yang mau kita tambahkan datanya (produk)
+        $pesanan = new Pesanan();
+
+        // ambil data yang diinoutkan user dengan parameter request,
+        // lalu masukan ke dalam kolom table (produk)
+        $pesanan->tanggal = $request->tanggal;
+        $pesanan->nama_pemesan = $request->nama_pemesan;
+        $pesanan->alamat_pemesan = $request->alamat_pemesan;
+        $pesanan->no_hp = $request->no_hp;
+        $pesanan->email = $request->email;
+        $pesanan->jumlah_pesanan = $request->jumlah_pesanan;
+        $pesanan->deskripsi= $request->deskripsi;
+        $pesanan->produk_id = $request->produk_id;
+
+        // save data inputan user menggunakan method save
+        $pesanan->save();
+
+        // lalu kembalikan ke tampilan produk setelah user mengklik tombol simpan
+        return redirect('admin/pesanan');
     }
 
     /**

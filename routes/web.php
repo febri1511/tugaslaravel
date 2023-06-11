@@ -60,6 +60,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/produk/store', [ProdukController::class, 'store']);
     Route::get('/kategoriproduk', [KategoriProdukController::class, 'index']);
     Route::get('/pesanan', [PesananController::class, 'index']);
+    Route::get('/pesanan/create', [PesananController::class, 'create']);
+    Route::get('/pesanan/store', [PesananController::class, 'store']);
 
 
 

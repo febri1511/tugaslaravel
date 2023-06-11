@@ -20,7 +20,7 @@ class KategoriProduk extends Model
 
       // ini fungsi untuk menghubungkan/mengarahkan ke model produk
       public function produk(){
-        return $this->hasMany(Produk::class);
+        return $this->belongTo(Produk::class);
     }
     public function getALLData(){
         $alldata = DB::table('kategori_produk')
