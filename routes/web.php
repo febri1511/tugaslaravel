@@ -62,6 +62,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/pesanan', [PesananController::class, 'index']);
     Route::get('/pesanan/create', [PesananController::class, 'create']);
     Route::get('/pesanan/store', [PesananController::class, 'store']);
+    Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
+    Route::post('/produk/update/{id}', [ProdukController::class, 'update']);
+    Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);
 
 
 
