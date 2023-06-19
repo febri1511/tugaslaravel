@@ -50,10 +50,12 @@
                                 <td>{{ $prod->min_stok }}</td>
                                 <td>{{ $prod->deskripsi }}</td>
                                 <td>{{ $prod->nama_kategori }}</td>
-                                <td><a href="{{ url('admin/produk/edit/' . $prod->id) }}" class="btn btn-success">Edit</a>
+                                <td>
+                                    <a href="{{ url('admin/produk/edit/' . $prod->id) }}" class="btn btn-success">Edit</a>
+
+                                    <a href="{{ url('admin/produk/delete/' . $prod->id) }}"
+                                        class="btn btn-danger">Delete</a>
                                 </td>
-                                <td><a href="{{ url('admin/produk/delete/' . $prod->id) }}"
-                                        class="btn btn-danger">Delete</a></td>
 
                             </tr>
                             @php

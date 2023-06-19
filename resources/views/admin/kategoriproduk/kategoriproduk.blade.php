@@ -16,6 +16,7 @@
 
         <div class="card mb-4">
             <div class="card-header">
+                <a href="{{ url('admin/kategoriproduk/create') }}" class="btn btn-primary">Tambah Produk</a>
 
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -23,6 +24,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +36,8 @@
                                 <tr>
                                     <td>{{ $no }}</td>
                                     <td>{{ $katprod->nama }}</td>
+                                    <td><a href="{{ url('admin/kategoriproduk/delete/' . $katprod->id) }}"
+                                            class="btn btn-danger">Delete</a></td>
                                 </tr>
                                 @php
                                     $no++;

@@ -63,8 +63,8 @@
             <label for="produk_id" class="col-4 col-form-label">Nama Produk</label>
             <div class="col-8">
                 <select id="produk_id" name="produk_id" class="custom-select">
-                    @foreach ($produk as $item)
-                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                    @foreach ($pesanan as $katprod)
+                        <option value="{{ $katprod->id }}">{{ $katprod->nama }}</option>
                     @endforeach
                 </select>
             </div>

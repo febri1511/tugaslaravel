@@ -9,6 +9,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\KategoriProdukController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -53,6 +54,7 @@ Route::get('/input', [InputController::class, 'index']);
 Route::post('/output', [InputController::class, 'output']);
 
 //ini route untuk backend atau admin
+Route::group(['middleware' => ['auth']], function(){
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/produk', [ProdukController::class, 'index']);
@@ -61,14 +63,22 @@ Route::prefix('admin')->group(function () {
     Route::get('/kategoriproduk', [KategoriProdukController::class, 'index']);
     Route::get('/pesanan', [PesananController::class, 'index']);
     Route::get('/pesanan/create', [PesananController::class, 'create']);
-    Route::get('/pesanan/store', [PesananController::class, 'store']);
+    Route::post('/pesanan/store', [PesananController::class, 'store']);
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
     Route::post('/produk/update/{id}', [ProdukController::class, 'update']);
     Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);
+    Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
+    Route::post('/pesanan/update/{id}', [PesananController::class, 'update']);
+    Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
+    Route::get('/logout', [DashboardController::class, 'logout']);
+    Route::post('/kategoriproduk/store', [KategoriProdukController::class, 'store']);
+    Route::get('/kategoriproduk/delete/{id}', [KategoriProdukController::class, 'destroy']);
+    Route::get('/kategoriproduk/create', [KategoriProdukController::class, 'create']);
 
 
 
 
+});
 });
 
 Route::prefix('frontend')->group(function () {
@@ -76,3 +86,6 @@ Route::prefix('frontend')->group(function () {
     Route::get('/about', [AboutController::class, 'index']);
 
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

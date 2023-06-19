@@ -31,6 +31,7 @@
                             <th>Jumlah Pesanan</th>
                             <th>Deskripsi</th>
                             <th>Nama Produk</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,13 @@
                                 <td>{{ $pes->jumlah_pesanan }}</td>
                                 <td>{{ $pes->deskripsi }}</td>
                                 <td>{{ $pes->nama_produk }}</td>
+                                <td>
+                                    <a href="{{ url('admin/pesanan/edit/' . $pes->id) }}" class="btn btn-success">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin/pesanan/delete/' . $pes->id) }}"
+                                        class="btn btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @php
                                 $no++;
