@@ -9,7 +9,7 @@
     @foreach ($pesanan as $pes)
         <h1 style="text-align: center">Edit Pesanan</h1>
         <hr>
-        <form method="POST" action="{{ url('admin/pesanan/update' . $pes->id) }}">
+        <form method="POST" action="{{ url('admin/pesanan/update/' . $pes->id) }}">
             {{ csrf_field() }}
             <div class="form-group row">
                 <label for="tanggal" class="col-4 col-form-label">Tanggal</label>
@@ -65,11 +65,7 @@
                 <div class="col-8">
                     <select id="produk_id" name="produk_id" class="custom-select">
                         @foreach ($produk as $katprod)
-                            <option
-                                class="@if ($pes->produk_id == $katprod->id) selected
-                            @else @endif"
-                                value="{{ $katprod->id }}">{{ $katprod->nama }}
-                            </option>
+                            <option value="{{ $katprod->id }}">{{ $katprod->nama }}</option>
                         @endforeach
                     </select>
                 </div>

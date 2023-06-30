@@ -24,10 +24,10 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        // menampilkan sluruh data kategori produk
+        //menampilkan sluruh data kategori produk
         $kategori_produk = KategoriProduk::all();
 
-        // menampilkan seluruh data produk
+        //menampilkan seluruh data produk
         $produk = Produk::all();
         return view('admin.produk.create', compact('kategori_produk', 'produk'));
     }

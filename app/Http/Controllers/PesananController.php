@@ -27,10 +27,10 @@ class PesananController extends Controller
     {
         // menampilkan sluruh data kategori produk
         $kategori_produk = KategoriProduk::all();
-        $pesanan = DB::table('produk')->get();
+        // $pesanan = DB::table('produk')->get();
         // menampilkan seluruh data produk
-        $produk = Pesanan::all();
-        return view('admin.pesanan.create', compact('kategori_produk', 'produk','pesanan'));
+        $pesanan = Pesanan::all();
+        return view('admin.pesanan.create', compact('kategori_produk','pesanan'));
     }
 
     /**
@@ -101,6 +101,7 @@ class PesananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('pesanan')->where('id', $id)->delete();
+        return redirect('admin/pesanan');
     }
 }
